@@ -1,0 +1,41 @@
+body,dl,dt,dd,ul,li,h1,h2,h3,form,input,p,button{margin:0;padding:0}
+form, ul,ol,li, dl, dt, dd {margin: 0px;list-style-type: none;padding: 0px;}
+a{color:#333;text-decoration:none;outline:0;}
+img{width:100%}
+.clearfix:after{
+	display:block;
+	content:'';
+	clear:both
+}
+.list_class{
+	margin:10px;
+}
+.list_li{
+	margin-bottom:20px
+}
+.list_img{
+	width:40%;
+	float:left;
+}
+.list_text{
+	width: 55%;
+    float: left;
+    margin-left: 5%;
+    line-height: 32px;
+}
+.list_text_p{
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.list_text_n{
+	color:#898888
+}
+.list_text_i{
+color: #fff;
+    background: red;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-right: 4px;
+}
