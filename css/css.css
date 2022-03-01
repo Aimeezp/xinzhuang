@@ -39,3 +39,12 @@ color: #fff;
     border-radius: 4px;
     margin-right: 4px;
 }
+
+
+.img_box{
+	display: flex;
+	justify-content: space-between;
+}
+.img_box>div{
+	margin:10px
+}
