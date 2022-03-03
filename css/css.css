@@ -84,3 +84,38 @@ color: #fff;
 	width: auto;
     vertical-align: bottom;
 }
+
+
+/*详情*/
+.detail_t{
+	padding:20px
+}
+.detail_box h3{
+	padding:20px;
+	background-color:#fcefc9;
+}
+.detail_box h3::before{
+	content: '';
+    width: 16px;
+    height: 16px;
+    background-color: #aeafac;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+	
+}
+.detail_box>div{
+	padding: 10px 20px;
+	line-height: 30px;
+}
+.detail_box>div ul li{
+	margin:10px;
+	float: left;
+	text-align: center;
+}
+.detail_box>div ul li .img_box img{
+	height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    margin: auto;
+}
