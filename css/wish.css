@@ -1,0 +1,197 @@
+html {
+	height: 100%;
+}
+
+body,
+dl,
+dt,
+dd,
+ul,
+li,
+h1,
+h2,
+h3,
+form,
+input,
+p,
+button {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5rem;
+}
+
+body {
+	overflow: auto;
+	height: 100%;
+}
+
+form,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+	margin: 0px;
+	list-style-type: none;
+	padding: 0px;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	outline: 0;
+}
+
+img {
+	width: 100%
+}
+
+.clearfix:after {
+	display: block;
+	content: '';
+	clear: both
+}
+
+//心愿列表
+.wish-banner {
+	height: 8rem;
+	overflow: hidden;
+}
+
+.wish-lish {
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 12pt;
+    box-shadow: 1px 1px 4px 1px #d8d8d8;
+    margin: 1rem;
+}
+
+.wish-lish .left {
+	float: left;
+	width: 30%;
+	height: 8rem;
+	overflow: hidden;
+	margin-right: 4%;
+}
+
+.wish-lish .right {
+	float: left;
+	width: 66%;
+	color: #999999;
+}
+
+.wish-lish .right .title {
+	display: flex;
+	justify-content: space-between;
+}
+.wish-lish .right .date-c{
+	padding:.4rem 0;
+	display: flex;
+	justify-content: space-between;
+}
+.wish-lish .right .date-c img{
+	width:1rem;
+}
+
+.wish-lish .right .content {
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+/* 留言板 */
+.message-board .list-box{
+	border-bottom:1px solid #E5E5E5;
+	color:#999;
+}
+.message-board .list-con{
+	padding:1rem;
+}
+.message-board .list-con .title{
+	color:#333;
+}
+.message-board .list-con .content{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	    -webkit-box-orient: vertical;
+}
+.message-content{
+	color:#F0516F ;
+	padding:1rem;
+	background: url('../img/message-bg.png');
+	height:100%;
+}
+
+/* 心愿卡 */
+.wish-card{
+	background: url('../img/bgform.jpg');
+	height:100%;
+	padding:1rem;
+}
+.wish-card .card-box{
+	padding:2rem 1rem;
+	background: #fff;
+	border-radius: 8px;
+	border:1px solid #FF7624;
+	line-height: 30px;
+	font-size: 12px;
+}
+.wish-card .card-box .content{
+	margin-left:60px;
+}
+.wish-card .card-box .wish-step{
+	border-left:1px solid #C9C9C9;
+	margin-left: 3rem;
+	 margin-top: 1rem;
+}
+.wish-card .card-box .step-box{
+	margin-top:4rem;
+	position:relative;
+}
+.wish-card .card-box .wish-step li span{
+	width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    background: #C9C9C9;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-left: -0.3rem;
+}
+.wish-card .card-box .wish-step li:last-child span{
+	width: 0.8rem;
+	height: 0.8rem;
+	 margin-left: -0.45rem;
+}
+.wish-card .card-box .step-box .sure{
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    width: 5rem;
+}
+.diaClass .cuo{
+	position:absolute;
+	top:1rem;
+	right:1rem;
+}
+.diaClass .btn{
+	width:10rem;
+	margin: 2rem auto;
+}
+.diaClass .van-dialog__confirm{
+	display:none;
+}
+.diaClass .content{
+	padding:2rem 1rem;
+	font-size: 12px;
+	line-height: 35px;
+}
+.diaClass .content div input{
+	width: 60%;
+	border: 1px solid #FFC8A9;
+	border-radius: 5px;
+}

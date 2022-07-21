@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="https://unpkg.com/vant@2.12/lib/index.css" />
+		<script src="https://unpkg.com/vue@2.6/dist/vue.min.js"></script>
+		<script src="https://unpkg.com/vant@2.12/lib/vant.min.js"></script>
+		<link href="../css/wish.css" rel="stylesheet" type="text/css" />
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div class="wish-banner">
+				<img src="../img/wish-banner.png" alt="">
+			</div>
+			<van-tabs v-model="activeName" @click="changeActive">
+				<van-tab title="待认领(108)" name="a"></van-tab>
+				<van-tab title="认领中(5)" name="b"></van-tab>
+				<van-tab title="已完成(3344)" name="c"></van-tab>
+			</van-tabs>
+			<div style="padding-bottom:4rem">
+				<div class="wish-lish clearfix">
+					<div class="left">
+						<img src="../img/banner-d.png" />
+					</div>
+					<div class="right">
+						<div class="title">
+							<p style="color:#333333;font-size: 14pt;">充电宝</p>
+							<p style="color:#FB6B02">{{activeStatus}}</p>
+						</div>
+						<div style="padding:.4rem 0">许愿时间：2022-02-28</div>
+						<div class="content">
+							长期在外工作，长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作
+						</div>
+					</div>
+				</div>
+				<div class="wish-lish clearfix">
+					<div class="left">
+						<img src="../img/banner-d.png" />
+					</div>
+					<div class="right">
+						<div class="title">
+							<p style="color:#333333;font-size: 14pt;">充电宝</p>
+							<p style="color:#FB6B02">{{activeStatus}}</p>
+						</div>
+						<div style="padding:.4rem 0">许愿时间：2022-02-28</div>
+						<div class="content">
+							长期在外工作，长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作
+						</div>
+					</div>
+				</div>
+				<div class="wish-lish clearfix">
+					<div class="left">
+						<img src="../img/banner-d.png" />
+					</div>
+					<div class="right">
+						<div class="title">
+							<p style="color:#333333;font-size: 14pt;">充电宝</p>
+							<p style="color:#FB6B02">{{activeStatus}}</p>
+						</div>
+						<div style="padding:.4rem 0">许愿时间：2022-02-28</div>
+						<div class="content">
+							长期在外工作，长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作长期在外工作
+						</div>
+					</div>
+				</div>
+			</div>
+			<van-tabbar active-color="#FF0000" inactive-color="#FF0000">
+				<van-tabbar-item >
+				    <span>发布心愿</span>
+				    <template #icon="props">
+				      <img src="../img/tab-icon1.png" />
+				    </template>
+				  </van-tabbar-item>
+				  <van-tabbar-item>
+				      <span>我的心愿</span>
+				      <template #icon="props">
+				        <img src="../img/tab-icon2.png" />
+				      </template>
+				    </van-tabbar-item>
+			</van-tabbar>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				template: ``,
+				data() {
+					return {
+						activeName: 'a',
+						activeStatus: '待认领',
+					}
+				},
+				methods: {
+					changeActive(tab) {
+						if (tab === 'a') this.activeStatus = '待认领'
+						if (tab === 'b') this.activeStatus = '认领中'
+						if (tab === 'c') this.activeStatus = '已完成'
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
