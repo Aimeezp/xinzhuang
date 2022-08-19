@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+        <link rel="stylesheet" href="https://unpkg.com/vant@2.12/lib/index.css" />
+		<script src="https://unpkg.com/vue@2.6/dist/vue.min.js"></script>
+		<script src="https://unpkg.com/vant@2.12/lib/vant.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+		<link rel="stylesheet" href="../assets/css/admin.css">
+		<link href="../css/css.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="sign-form" id="app">
+			<form class="am-form">
+				<fieldset>
+					<h3>工会家园，相亲活动等你来参加</h3>
+					<div class="formClass">
+						<div class="am-form-group radioClass">
+							<van-radio-group v-model="radio" @change="radioChange">
+                                <van-radio name="1">个人报名
+                                    <template #icon="props">
+                                        <img class="img-icon" style="width:18px;vertical-align: baseline;" :src="props.checked ? '../img/radio2.png' : '../img/radio1.png'"/>
+                                      </template>
+                                </van-radio>
+                                <van-radio name="2">团体报名
+                                    <template #icon="props">
+                                        <img class="img-icon" style="width:18px;vertical-align: baseline;" :src="props.checked ? '../img/radio2.png' : '../img/radio1.png'"/>
+                                      </template>
+                                </van-radio>
+                              </van-radio-group>
+						</div>
+						<div class="am-form-group">
+							<label for="doc-ipt-email-1">姓名：</label>
+							<input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.realname">
+						</div>
+
+						<div class="am-form-group" v-if="radio==1">
+							<label for="doc-select-1">性别：</label>
+							<select id="doc-select-1" v-model="signform.sex">
+								<option value="option1">男</option>
+								<option value="option2">女</option>
+							</select>
+							<span class="am-form-caret"></span>
+						</div>
+						<div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">学历：</label>
+							<input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.education">
+						</div>
+						<div class="am-form-group">
+							<label for="doc-ipt-email-1">工作单位：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.company">
+						</div>
+                        <div class="am-form-group">
+							<label for="doc-ipt-email-1">报名人数：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.personal_num">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">地址：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.address">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">身份证号：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.code">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">邮箱：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.email">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">年龄：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.age">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">出生日期：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.birth">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">所属工会：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.union_name">
+						</div>
+                        <div class="am-form-group" v-if="radio==1">
+							<label for="doc-ipt-email-1">工会卡号：</label>
+					  <input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.union_card_code">
+						</div>
+						<div class="am-form-group" v-if="radio==1">
+							<label for="doc-ta-1">个人介绍：</label>
+							<textarea class="" rows="3" id="doc-ta-1" v-model="signform.introduction"></textarea>
+						</div>
+						<div class="am-form-group" v-if="radio==1">
+							<label for="doc-ta-1">择偶要求：</label>
+							<textarea class="" rows="3" id="doc-ta-1" v-model="signform.mate_require"></textarea>
+						</div>
+					 <div class="am-form-group" v-if="radio==1">
+							<label>个人生活照(最多3张)：</label>
+                            <div>
+                                <van-uploader :after-read="afterRead" multiple :max-count="3" v-model="signform.img_url"/>
+                            </div>
+						</div>
+						<div class="am-form-group">
+							<label for="doc-ipt-email-1">手机号：</label>
+							<input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.mobile">
+						</div>
+						<div class="am-form-group imgCodeBox clearfix">
+							<div class="left">
+								<label for="doc-ipt-email-1">图片验证码：</label>
+								<input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.code">
+							</div>
+							<div class="right"  style="margin-top:25px">
+								<img :src="imgcode" alt="" @click="getCaptcha">
+							</div>
+						</div>
+						<div class="am-form-group imgCodeBox clearfix">
+							<div class="left">
+								<label for="doc-ipt-email-1">短信验证码：</label>
+								<input type="text" class="inputClass" id="doc-ipt-email-1" v-model="signform.sms_code">
+							</div>
+							<div class="right1">
+								<input type="text" class="inputClass" id="doc-ipt-email-1" value="获取短信验证码"  @click="getcodeCaptcha">
+							</div>
+						</div>
+						<p style="text-align:center;margin-top: 5rem;"><span type="submit" class="sumitBtn" @click="sumitWish">提交信息</span></p>
+                        <van-dialog v-model="show" title="温馨提示" class="diaClass" show-confirm-button="false" :before-close="onBeforeClose">
+                            <div class="cuo" @click="closeDialog">X</div>
+                            <div class="content">
+                                您的心愿已提交，请耐心等待审核~
+                            </div>
+                        </van-dialog>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+        <script>
+			var app = new Vue({
+				el: '#app',
+				template: ``,
+				data() {
+					return {
+                        show:false,
+						radio:'1',
+                        imgcode:'',
+                        signform:{
+                            realname:'',
+                            sex:'',
+                            code:'',
+                            education:'',
+                            company:'',
+                            introduction:'',
+                            mate_require:'',
+                            img_url:[],
+                            mobile:'',
+                            personal_num:'',
+                            address:'',
+                            email:'',
+                            age:'',
+                            birth:'',
+                            union_name:'',
+                            union_card_code:'',
+                            meeting_id:'',
+                        },
+					}
+				},
+				mounted(){
+                    this.getCaptcha()
+				},
+				methods: {
+                    getCaptcha(){
+                        axios({
+						   method:'get',
+						   url:`http://xzgh.seodata.com.cn/captcha`,
+                           responseType: 'blob',
+						   header:{'Access-Control-Allow-Origin':'*'}
+						 }).then(res => {
+                            let imageUrl = window.URL.createObjectURL(res.data);
+                              this.imgcode = imageUrl
+                            })
+                    },
+                    getcodeCaptcha(){
+                        if(this.signform.mobile==''){
+                            vant.Toast('请填写手机号码！');
+                            return false
+                        }
+                        axios({
+						   method:'post',
+						   url:`http://xzgh.seodata.com.cn/wish/send_code`,
+                           data:{mobile:this.signform.mobile,captcha_code:this.signform.code},
+						   header:{'Access-Control-Allow-Origin':'*'}
+						 }).then(res => {
+							vant.Toast(res.data.msg);
+							return false
+							
+                        })
+                    },
+					sumitWish(){
+                        axios({
+						   method:'post',
+						   url:`http://xzgh.seodata.com.cn/meeting/save`,
+                           data:this.signform,
+						   header:{'Access-Control-Allow-Origin':'*'}
+						 }).then(res => {
+							 if(res.data.code == 1){
+								 this.show = true
+							 }else{
+								 vant.Toast(res.data.msg);
+								 return false
+							 }
+                         })
+					},
+					closeDialog(){
+						this.show = false
+						window.location.href = 'index'
+					},
+					//阻止关闭弹框
+					onBeforeClose(action, done) {
+						return done(false);//阻止关闭
+					},
+                    afterRead(file) {
+                     console.log(file);
+                    },
+                    radioChange(v){
+                        console.log(v,'v')
+                    },
+			
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="https://unpkg.com/vant@2.12/lib/index.css" />
 		<script src="https://unpkg.com/vue@2.6/dist/vue.min.js"></script>
 		<script src="https://unpkg.com/vant@2.12/lib/vant.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<link href="../css/wish.css" rel="stylesheet" type="text/css" />
 		<title></title>
 	</head>
@@ -92,11 +93,26 @@
 						activeStatus: '待认领',
 					}
 				},
+				mounted(){
+					this.getList()
+				},
 				methods: {
 					changeActive(tab) {
 						if (tab === 'a') this.activeStatus = '待认领'
 						if (tab === 'b') this.activeStatus = '认领中'
 						if (tab === 'c') this.activeStatus = '已完成'
+					},
+					getList(){
+						 axios({
+						   method:'get',
+						   url:'http://xzgh.seodata.com.cn/wish/index_page',
+						   dataType:'jsonp',
+						   header:{'Access-Control-Allow-Origin':'*'}
+						 })
+						      .then(res => (
+							  console.log(res)
+							  ))
+						   
 					}
 				}
 			});

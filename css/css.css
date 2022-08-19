@@ -156,7 +156,6 @@ textarea {
 .sign-form .radioClass {
 	text-align: center;
 	padding: 1rem;
-	margin-bottom: 0;
 }
 
 .radioClass .am-radio-inline {
@@ -385,4 +384,14 @@ textarea {
 	font-size: 12px;
 	line-height: 35px;
 	text-align: center;
+}
+
+
+/* 活动列表 */
+.radioClass .van-radio-group{
+    display:flex;
+    justify-content: space-around;
+}
+.sign-form{
+    background-size: cover;
 }
